@@ -9,7 +9,7 @@ import oauth2client.client
 import os
 
 def get_credentials():
-    oauth2client.client.OAuth2Credentials.from_json(os.environ['GOOGLE_CALENDAR_CREDENTIALS'])
+    return oauth2client.client.OAuth2Credentials.from_json(os.environ['GOOGLE_CALENDAR_CREDENTIALS'])
 
 def list_events(calendarId, month, year):
     credentials = get_credentials()
