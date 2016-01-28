@@ -32,13 +32,13 @@ def list_events(calendarId, month, year):
 def create_event(calendarId, techShopEvent):
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
-    service = discovery.build('calendar', 'v3', http=http)
+    service = apiclient.discovery.build('calendar', 'v3', http=http)
 
     service.events().insert(calendarId=calendarId, body=techShopEvent.to_google_calendar()).execute()
 
 def remove_event(calendarId, eventId):
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
-    service = discovery.build('calendar', 'v3', http=http)
+    service = apiclient.discovery.build('calendar', 'v3', http=http)
 
     service.events().delete(calendarId=calendarId, eventId=eventId).execute()
